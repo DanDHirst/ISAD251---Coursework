@@ -1,4 +1,4 @@
-CREATE PROCEDURE Invoice (IN OrderNumber INT)
+CREATE PROCEDURE Invoice (OrderNumber INT)
     SELECT pub_order.OrderDate, pub_order_detail.ProdID, pub_order_detail.Qty, 
     pub_product.ProdName, pub_product.Price, (pub_order_detail.Qty * pub_product.Price) as SubTotal
     FROM pub_order, pub_order_detail, pub_product
