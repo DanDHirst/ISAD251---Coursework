@@ -1,0 +1,15 @@
+CREATE TABLE Pub_Product(
+	ProdID INT AUTO_INCREMENT NOT NULL,
+	ProdName VARCHAR(30) NOT NULL,
+	Qty INT NOT NULL,
+	Price INT NOT NULL,
+	LastModifiedBy VARCHAR(30) NOT NULL,
+	IsAvailable BOOLEAN NOT NULL,
+	PRIMARY KEY (ProdID),
+	CONSTRAINT FK_UserModified FOREIGN KEY (LastModifiedBy)
+    	REFERENCES pub_admin(Username),
+	CONSTRAINT CHK_Item CHECK (Qty>=0 AND Price >=0)
+);
+	
+	
+	
