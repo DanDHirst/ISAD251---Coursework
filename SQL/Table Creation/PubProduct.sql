@@ -5,6 +5,7 @@ CREATE TABLE Pub_Product(
 	Price FLOAT NOT NULL,
 	LastModifiedBy VARCHAR(30) NOT NULL,
 	IsAvailable BOOLEAN NOT NULL,
+	IsSnack BOOLEAN NOT NULL,
 	PRIMARY KEY (ProdID),
 	CONSTRAINT FK_UserModified FOREIGN KEY (LastModifiedBy)
     	REFERENCES pub_admin(Username),
