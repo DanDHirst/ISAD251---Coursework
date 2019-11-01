@@ -4,6 +4,6 @@ CREATE TABLE Pub_Order (
     Completed BOOLEAN NOT NULL,
     Comments VARCHAR(255),
     TableNumber INT NOT NULL,
-    Email VARCHAR(50),
+    Email VARCHAR(50) NOT NULL,
     PRIMARY KEY(OrderID)
 );

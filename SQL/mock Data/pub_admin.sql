@@ -1,3 +1,4 @@
+insert into pub_admin (Username, Password) values ('Admin', 'G03I6Mg4');
 insert into pub_admin (Username, Password) values ('Sonair', 'A0xI6Hg2');
 insert into pub_admin (Username, Password) values ('Alpha', 'fpnsa84sbe');
 insert into pub_admin (Username, Password) values ('Biodex', 'QFGsszptGqT');
