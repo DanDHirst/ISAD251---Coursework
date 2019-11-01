@@ -3,4 +3,5 @@ CREATE VIEW MonthlyOrders AS
     YEAR(OrderDate) as Year,
     MONTH(OrderDate) as Month
     FROM pub_order
-    Group By YEAR(OrderDate), MONTH(OrderDate);
+    GROUP BY YEAR(OrderDate), MONTH(OrderDate)
+    ORDER BY YEAR(OrderDate), MONTH(OrderDate);
