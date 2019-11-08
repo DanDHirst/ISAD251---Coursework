@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/', 'HomePage@showHomePageMenu');
+
 Route::get('admin', function (){
     return view('admin');
 });
