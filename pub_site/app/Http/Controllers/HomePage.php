@@ -82,7 +82,7 @@ class HomePage extends Controller
         //
     }
     public function showHomePageMenu(){
-        $menu = "A pint of beer";
+        $menu = ['Beer', 'Wine', 'Gin' , 'pretzels'];
         return view('home', compact('menu'));
     }
 }
