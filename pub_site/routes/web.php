@@ -12,9 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('admin', function (){
     return view('admin');
 });
-Route::get('posts/{post}', 'PostController@show');
+Route::get('order', function (){
+    return view('order');
+});
+Route::get('admin/products', function (){
+    return view('products');
+});
+Route::get('admin/orders', function (){
+    return view('adminOrders');
+});
+Route::get('order/customerOrder', function (){
+    return view('customerOrders');
+});
+
+
