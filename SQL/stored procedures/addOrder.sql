@@ -9,3 +9,5 @@ BEGIN
   INSERT INTO pub_order(OrderDate,Completed,Comments,TableNumber,Email)
   VALUES (NOW(), 0, ordercomments, ordertablenumber, orderemail);
   COMMIT;
+END$$
+DELIMITER ;
