@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 Route::get('/', 'HomePage@showHomePageMenu');
 
 Route::get('admin', function (){
+//    a default test insert
+//    DB::insert("insert into customers( CusName) VALUES (?)", ["andrew"]);
     return view('admin');
 });
 Route::get('order', function (){
@@ -31,5 +33,6 @@ Route::get('admin/orders', function (){
 Route::get('order/customerOrder', function (){
     return view('customerOrders');
 });
+
 
 
