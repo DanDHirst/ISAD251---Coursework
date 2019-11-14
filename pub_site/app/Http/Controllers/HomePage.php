@@ -84,7 +84,7 @@ class HomePage extends Controller
     }
     public function showHomePageMenu(){
 
-        $results = DB::select('select * from pub_product');
+        $results = \App\GetMenu::all();
         $menu = [];
         foreach($results as $item){
             array_push($menu,$item->ProdName);
