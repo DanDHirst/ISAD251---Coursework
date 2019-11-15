@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class GetSnack extends Model
 {
     //
-    protected $table = 'GetSnacks';
+    protected $table = 'getsnacks';
     protected $primaryKey = 'ProdID';
 }
