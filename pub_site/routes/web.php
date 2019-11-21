@@ -23,6 +23,8 @@ Route::get('admin', function (){
 //   DB::update('update customers set cusName = "Daniel" where cusName=  ?', ["dan"]);
     // test to delete a customer
 //    DB::delete('delete from customers where cusName = ?', ["john"]);
+   // DB::select("CALL withdrawProduct(3)");
+    // use to use transactions
     return view('admin');
 });
 
