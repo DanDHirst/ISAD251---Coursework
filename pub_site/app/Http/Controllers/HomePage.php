@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomePage extends Controller
 {
@@ -82,7 +83,12 @@ class HomePage extends Controller
         //
     }
     public function showHomePageMenu(){
-        $menu = ['Beer', 'Wine', 'Gin' , 'pretzels'];
+
+        $results = \App\GetMenu::all();
+        $menu = [];
+        foreach($results as $item){
+            array_push($menu,$item->ProdName);
+        }
         return view('home', compact('menu'));
     }
 }

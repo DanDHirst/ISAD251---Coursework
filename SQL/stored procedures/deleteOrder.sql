@@ -1,0 +1,5 @@
+DELIMITER $$
+CREATE DEFINER=`ISAD251_DHirst`@`%` PROCEDURE `deleteOrder`(IN `newOrderID` INT)
+    NO SQL
+DELETE FROM pub_order WHERE OrderID = newOrderID$$
+DELIMITER ;

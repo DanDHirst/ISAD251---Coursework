@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 Route::get('/', 'HomePage@showHomePageMenu');
 
 Route::get('admin', function (){
+//    a default test insert
+//    DB::insert("insert into customers( CusName) VALUES (?)", ["andrew"]);
+//    a test for updating the customer table
+//   DB::update('update customers set cusName = "Daniel" where cusName=  ?', ["dan"]);
+    // test to delete a customer
+//    DB::delete('delete from customers where cusName = ?', ["john"]);
+   // DB::select("CALL withdrawProduct(3)");
+    // use to use transactions
     return view('admin');
 });
+
 Route::get('order', function (){
     return view('order');
 });
@@ -31,5 +40,15 @@ Route::get('admin/orders', function (){
 Route::get('order/customerOrder', function (){
     return view('customerOrders');
 });
+
+//test views
+Route::get('/viewProducts', function (){
+    $products = \App\Pub_Product::all();
+
+    foreach ($products as $product){
+        return $product->ProdName;
+    }
+});
+
 
 
