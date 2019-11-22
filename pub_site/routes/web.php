@@ -31,14 +31,17 @@ Route::get('admin', function (){
 Route::get('order', function (){
     return view('order');
 });
-Route::get('admin/products', function (){
-    return view('products');
+Route::get('adminProducts', function (){
+    return view('adminProducts');
 });
-Route::get('admin/orders', function (){
-    return view('adminOrders');
+Route::get('adminCustomer', function (){
+    return view('adminCustomer');
 });
-Route::get('order/customerOrder', function (){
-    return view('customerOrders');
+Route::get('viewOrder', function (){
+    return view('viewOrder');
+});
+Route::get('menu', function (){
+    return view('menu');
 });
 
 //test views
