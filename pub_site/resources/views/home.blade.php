@@ -3,7 +3,7 @@
 @section('header')
 
 <main class="page landing-page">
-    <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+    <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/PubImages/PubBottles.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
         <div class="text">
             <h2>Pub Open since 1904</h2>
             <p>Hope you come to visit us soon!</p><button class="btn btn-outline-light btn-lg" type="button">Order Here</button></div>

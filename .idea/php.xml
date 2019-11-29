@@ -87,6 +87,7 @@
       <path value="$PROJECT_DIR$/pub_site/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/pub_site/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/pub_site/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/pub_site/vendor/laracademy/generators" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

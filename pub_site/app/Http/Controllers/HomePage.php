@@ -82,13 +82,13 @@ class HomePage extends Controller
     {
         //
     }
-    public function showHomePageMenu(){
+    public function showPageMenu(){
 
         $results = \App\GetMenu::all();
         $menu = [];
         foreach($results as $item){
-            array_push($menu,$item->ProdName);
+            array_push($menu,$item->ProdName . "  £". $item->Price );
         }
-        return view('home', compact('menu'));
+        return view('menu', compact('menu'));
     }
 }

@@ -14,7 +14,7 @@
 //Route::get('/', function () {
 //    return view('home');
 //});
-Route::get('/', 'HomePage@showHomePageMenu');
+Route::get('menu', 'HomePage@showPageMenu');
 
 Route::get('admin', function (){
 //    a default test insert
@@ -40,8 +40,8 @@ Route::get('adminCustomer', function (){
 Route::get('viewOrder', function (){
     return view('viewOrder');
 });
-Route::get('menu', function (){
-    return view('menu');
+Route::get('/', function (){
+    return view('home');
 });
 
 //test views
