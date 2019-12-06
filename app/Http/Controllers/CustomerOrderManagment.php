@@ -81,4 +81,13 @@ class CustomerOrderManagment extends Controller
     {
         //
     }
+    public function showProducts()
+    {
+        $results = \App\GetMenu::all();
+//        $menu = [];
+//        foreach($results as $item){
+//            array_push($menu,$item->ProdName . "  £". $item->Price );
+//        }
+        return view('order', compact('results'));
+    }
 }

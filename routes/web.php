@@ -16,6 +16,7 @@
 //});
 Route::get('menu', 'HomePage@showPageMenu');
 
+Route::get('order', 'CustomerOrderManagment@showProducts');
 Route::get('admin', function (){
 //    a default test insert
 //    DB::insert("insert into customers( CusName) VALUES (?)", ["andrew"]);
@@ -28,9 +29,9 @@ Route::get('admin', function (){
     return view('admin');
 });
 
-Route::get('order', function (){
-    return view('order');
-});
+//Route::get('order', function (){
+//    return view('order');
+//});
 Route::get('adminProducts', function (){
     return view('adminProducts');
 });
@@ -39,6 +40,9 @@ Route::get('adminCustomer', function (){
 });
 Route::get('viewOrder', function (){
     return view('viewOrder');
+});
+Route::get('home', function (){
+    return view('home');
 });
 Route::get('/', function (){
     return view('home');

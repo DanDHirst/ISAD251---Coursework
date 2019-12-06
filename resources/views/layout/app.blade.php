@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="/">Home</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="home">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="menu">Menu</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="order">Order now</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="viewOrder">view order</a></li>
@@ -30,7 +30,7 @@
             <div class="col-sm-4">
                 <h5>Get Food</h5>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="home">Home</a></li>
                     <li><a href="order">Order</a></li>
                     <li><a href="menu">Menu</a></li>
                 </ul>
