@@ -41,8 +41,7 @@
 {{--                        <input--}}
 {{--                            class="form-control" type="sumbit">--}}
                         <button class="btn btn-primary" type="submit">Sumbit order</button>
-                        <input id="sumbmitItemList" type="text" name="points">
-                        <input id="sumbmitItemLists" type="text" name="itemList">
+                        <input id="sumbmitItemLists" type="hidden" name="itemList">
 
                     </form>
                 </div>

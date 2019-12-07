@@ -46,14 +46,17 @@ class CustomerOrderManagment extends Controller
 //            echo $item->ProdID . $item->ProdName . $item->Quantity . $item->Price ;
 //        }
         DB::select('CALL addOrder (?, ?, ?)', array($request->comments,$request->tableNumber, $request->email));
-        $orderID = DB::raw('CALL getOrderID(?)', array($request->email));
+        $orderID = DB::select('CALL getOrderID(?)', array($request->email));
+
         foreach ($orderID as $id){
-            echo $id->OrderID;
+             $orderID = $id->OrderID;
         }
-        $results = \App\GetMenu::all();
-        foreach ($results as $ids){
-            echo $ids->ProdID;
+        foreach ($itemList->data as $item) {
+            DB::select('CALL addOrderDetails(?,?,?,?)', array($orderID,$item->ProdID,$item->Quantity, $item->Price));
         }
+        echo "<h1> Order Sucessfully placed </h1><br>";
+        echo "Your orderID is ". $orderID;
+        echo "<li><a href=\"home\">Home</a></li>";
 //        echo "datais " . $itemList->data[0]-> ProdID;
 //        return $request->all();
     }
