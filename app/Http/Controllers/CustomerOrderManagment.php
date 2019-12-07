@@ -55,8 +55,18 @@ class CustomerOrderManagment extends Controller
             DB::select('CALL addOrderDetails(?,?,?,?)', array($orderID,$item->ProdID,$item->Quantity, $item->Price));
         }
         echo "<h1> Order Sucessfully placed </h1><br>";
-        echo "Your orderID is ". $orderID;
-        echo "<li><a href=\"home\">Home</a></li>";
+        echo "Your OrderID is ". $orderID;
+        echo "<br> Your Items: ";
+        echo "<ul>";
+        //print out all items
+        $total= 0;
+        foreach ($itemList->data as $item) {
+            echo "<li> Product name: " . $item->ProdName . " Quantity: " . $item->Quantity . " Item price: ". $item->Price . "</li> <br>";
+            $total = $total + ($item->Quantity* $item->Price);
+        }
+        echo "</ul>";
+        echo "<li>" . "Total Price: £". $total ."</li><br>";
+        echo "<h1><a href=\"home\">Click here once finsihed to head back to the home page</a></h1>" ;
 //        echo "datais " . $itemList->data[0]-> ProdID;
 //        return $request->all();
     }

@@ -28,9 +28,9 @@
                 <div class="col-md-4">
                     <form method="post" action="/order" >
                         @csrf
-                        Enter Table Number(0-99)
-                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
                         Enter your Email(e.g. pub@pub.com)
+                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        Enter Table Number(0-99)
                         <input id="tableNumber" type="text" class="form-control" name="tableNumber" placeholder="Table Number">
                         Enter any comments you have about the order
                         <input id="comments" type="text" class="form-control" name="comments" placeholder="Comments">
@@ -40,10 +40,12 @@
 {{--                            Enter any comments you have about the order</small>--}}
 {{--                        <input--}}
 {{--                            class="form-control" type="sumbit">--}}
-                        <button class="btn btn-primary" type="submit">Sumbit order</button>
+
+                        <button id="submitOrder" class="btn btn-primary" style="display: none;" type="submit">Sumbit order</button>
                         <input id="sumbmitItemLists" type="hidden" name="itemList">
 
                     </form>
+                    <button class="btn btn-primary" onclick="checkFields()">Submit order</button>
                 </div>
             </div>
         </section>
@@ -131,6 +133,21 @@
             }
             createJSONObject();
         }
+        function checkFields() {
+            var email = document.getElementById("email").value;
+            var table = document.getElementById("tableNumber").value;
+            if(validateEmail(email) == true){
+                if(validateTableNumber(table) == true){
+                    document.getElementById("submitOrder").click();
+                }
+                else{
+                    alert("table number incorrect format")
+                }
+            }
+            else {
+                alert("email incorrect format")
+            }
+        }
         function validateEmail(email)
         {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -140,6 +157,7 @@
             var re = /^\d{2}$/;
             return re.test(String(table));
         }
+
         function createJSONObject(){
             var items = {};
             items.data = itemList;
