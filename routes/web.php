@@ -16,7 +16,8 @@
 //});
 Route::get('menu', 'HomePage@showPageMenu');
 
-Route::get('order', 'CustomerOrderManagment@showProducts');
+//Route::get('order', 'CustomerOrderManagment@showProducts');
+Route::resource('order', 'CustomerOrderManagment');
 Route::get('admin', function (){
 //    a default test insert
 //    DB::insert("insert into customers( CusName) VALUES (?)", ["andrew"]);
