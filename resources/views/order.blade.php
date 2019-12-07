@@ -34,12 +34,7 @@
                         <input id="tableNumber" type="text" class="form-control" name="tableNumber" placeholder="Table Number">
                         Enter any comments you have about the order
                         <input id="comments" type="text" class="form-control" name="comments" placeholder="Comments">
-{{--                        <small class="form-text text-muted">Enter Table Number(0-99)</small>--}}
-{{--                        <input class="form-control" type="text"><small class="form-text text-muted">--}}
-{{--                            Enter your Email(e.g. pub@pub.com)</small><input class="form-control" type="text"><small class="form-text text-muted">--}}
-{{--                            Enter any comments you have about the order</small>--}}
-{{--                        <input--}}
-{{--                            class="form-control" type="sumbit">--}}
+
 
                         <button id="submitOrder" class="btn btn-primary" style="display: none;" type="submit">Sumbit order</button>
                         <input id="sumbmitItemLists" type="hidden" name="itemList">

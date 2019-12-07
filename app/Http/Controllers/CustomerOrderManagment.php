@@ -16,10 +16,6 @@ class CustomerOrderManagment extends Controller
     {
         //
         $results = \App\GetMenu::all();
-//        $menu = [];
-//        foreach($results as $item){
-//            array_push($menu,$item->ProdName . "  £". $item->Price );
-//        }
         return view('order', compact('results'));
     }
 
@@ -80,7 +76,6 @@ class CustomerOrderManagment extends Controller
     public function show($id)
     {
         //
-        return "this is show method";
     }
 
     /**
