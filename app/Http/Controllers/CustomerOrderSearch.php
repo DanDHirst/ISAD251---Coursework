@@ -15,8 +15,10 @@ class CustomerOrderSearch extends Controller
     public function index()
     {
         //
-
-        return view('viewOrder');
+        $orders = [];
+        $orderDetails = [];
+        // send in these variables as null so the program doesnt crash when trying to find the variables
+        return view('viewOrder', compact('orders'), compact('orderDetails'));
     }
 
     /**
