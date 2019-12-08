@@ -7,7 +7,7 @@
         <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading"><small class="form-text text-muted">Enter email address&nbsp;</small>
-                    <form method="post" action="/viewOrder">
+                    <form method="post" action="viewOrder">
                         @csrf
                         <input class="form-control" type="email" name="email">
                         <small class="form-text text-muted">OR</small>

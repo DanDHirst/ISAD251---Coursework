@@ -26,7 +26,7 @@
                     </form>
                 </div>
                 <div class="col-md-4">
-                    <form method="post" action="/order" >
+                    <form method="post" action="order" >
                         @csrf
                         Enter your Email(e.g. pub@pub.com)
                         <input id="email" type="text" class="form-control" name="email" placeholder="Email">
