@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 
-class HomePage extends Controller
+class CustomerOrderSearch extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,10 @@ class HomePage extends Controller
     public function index()
     {
         //
+        $orders = [];
+        $orderDetails = [];
+        // send in these variables as null so the program doesnt crash when trying to find the variables
+        return view('viewOrder', compact('orders'), compact('orderDetails'));
     }
 
     /**
@@ -25,6 +29,7 @@ class HomePage extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -36,6 +41,16 @@ class HomePage extends Controller
     public function store(Request $request)
     {
         //
+        $orders = DB::select('CALL getOrder(?,?)', array($request->orderID,$request->email));
+        $orderID = $request->orderID;
+        if ($orderID == null){
+            $orderID = DB::select('CALL getOrderID(?)', array($request->email));
+        }
+        $orderDetails = DB::select('CALL getOrderDetails(?)', array($request->orderID));
+
+        return view('viewOrder', compact('orders'), compact('orderDetails'));
+
+
     }
 
     /**
@@ -81,14 +96,5 @@ class HomePage extends Controller
     public function destroy($id)
     {
         //
-    }
-    public function showPageMenu(){
-
-        $results = \App\GetMenu::all();
-        $menu = [];
-        foreach($results as $item){
-            array_push($menu,$item->ProdName . "  £". $item->Price );
-        }
-        return view('menu', compact('menu'));
     }
 }

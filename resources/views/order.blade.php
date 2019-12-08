@@ -15,6 +15,7 @@
                                 <button class="btn btn-danger" onclick="removeItem({{$item}})">-</button>
                                 Quantity <button class="btn btn-primary" disabled id= {{$item->ProdID}}  >0</button>
                                 </div>
+
                             </li>
                         @endforeach
                     </ul>
@@ -25,15 +26,27 @@
                     </form>
                 </div>
                 <div class="col-md-4">
-                    <form><small class="form-text text-muted">Enter Table Number</small><input class="form-control" type="text"><small class="form-text text-muted">Enter your Email</small><input class="form-control" type="text"><small class="form-text text-muted">Enter any comments you have about the order</small>
-                        <input
-                            class="form-control" type="text"><button class="btn btn-primary" type="submit">Sumbit order</button></form>
+                    <form method="post" action="order" >
+                        @csrf
+                        Enter your Email(e.g. pub@pub.com)
+                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        Enter Table Number(0-99)
+                        <input id="tableNumber" type="text" class="form-control" name="tableNumber" placeholder="Table Number">
+                        Enter any comments you have about the order
+                        <input id="comments" type="text" class="form-control" name="comments" placeholder="Comments">
+
+
+                        <button id="submitOrder" class="btn btn-primary" style="display: none;" type="submit">Sumbit order</button>
+                        <input id="sumbmitItemLists" type="hidden" name="itemList">
+
+                    </form>
+                    <button class="btn btn-primary" onclick="checkFields()">Submit order</button>
                 </div>
             </div>
         </section>
     </main>
     <script>
-        var itemList = [];
+    var itemList = [];
         function addItem(id) {
                // The function returns the product of p1 and p2
                 if(checkIfInList(id.ProdID) == false) {
@@ -101,8 +114,10 @@
         }
         function outputToList(id){
             var node=document.createElement("li");
-            var textnode=document.createTextNode(itemList[id].ProdName + " £" +
-                itemList[id].Quantity * itemList[id].Price);
+            var total = itemList[id].Quantity * itemList[id].Price;
+            total = total.toFixed(2);
+            var textnode=document.createTextNode(itemList[id].ProdName + " £" + total
+                );
             node.appendChild(textnode);
             document.getElementById("items").appendChild(node);
         }
@@ -111,11 +126,39 @@
             for (var i = 0; i < arrayLength; i++) {
                 document.getElementById(itemList[i].ProdID).innerHTML = itemList[i].Quantity;
             }
+            createJSONObject();
+        }
+        function checkFields() {
+            var email = document.getElementById("email").value;
+            var table = document.getElementById("tableNumber").value;
+            if(validateEmail(email) == true){
+                if(validateTableNumber(table) == true){
+                    document.getElementById("submitOrder").click();
+                }
+                else{
+                    alert("table number incorrect format")
+                }
+            }
+            else {
+                alert("email incorrect format")
+            }
         }
         function validateEmail(email)
         {
-            var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
-            return re.test(email);
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
         }
+        function validateTableNumber(table){
+            var re = /^\d{2}$/;
+            return re.test(String(table));
+        }
+
+        function createJSONObject(){
+            var items = {};
+            items.data = itemList;
+            $('#sumbmitItemLists').val(JSON.stringify(items));
+        }
+        window.onload = function() {
+        };
     </script>
     @section('footer')
