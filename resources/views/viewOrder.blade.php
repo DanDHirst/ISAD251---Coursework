@@ -14,7 +14,6 @@
                         <small class="form-text text-muted">Enter Order ID</small>
                         <input class="form-control" type="text" name="orderID">
                         <button id="submitOrder" class="btn btn-primary" type="submit">Find order(s)</button>
-                        <button id="submitOrder" class="btn btn-primary"  type="submit">Sumbit order</button>
                     </form>
                 </div>
                 <div>
@@ -68,15 +67,74 @@
                                 <td>{{$orderDetail->ProdID}}</td>
                                 <td>{{$orderDetail->Qty}}</td>
                                 <td>{{$orderDetail->Price}}</td>
+                                <td>
+                                    <button class="btn-danger" onclick=removeProd({{$orderDetail->OrderDetailsID}}) }>X
+                                    </button>
+                                </td>
+                            </tr>
+                            @endforeach
+
+                            <tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                        <form method="post" action="viewOrder">
+                            @csrf
+                        <table class="table">
+                        <thead>
+                        <tr>
+                            <th>OrderID</th>
+                            <th>Product ID</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                        </thead>
+                            <tbody>
+                            <tr>
+
+                                <td> <input type="text" name="OrderID" value="" required></td>
+                                <td><input type="text" name= "ProductID" value="" required></td>
+                                <td><input type="text" name="Quantity" value="" required></td>
+                                <td><input type="text" name="Price" value="" required></td>
+                                <td><button id="submitOrder" class="btn btn-primary" type="submit">add Item to order</button></td>
+
+
+
                             </tr>
                             </tbody>
-                            @endforeach
                         </table>
+                        </form>
+                        <ul>
+                            @foreach($results as $item)
+                                <li style="list-style-type: none;">
+
+                                    ProductID: {{$item->ProdID}} | Name:{{$item->ProdName}} | Price: £{{$item->Price}}
+
+
+                                </li>
+                            @endforeach
+                        </ul>
+
+
+
 
                     </div>
                 </div>
             </div>
         </section>
+        <form id="formDelete" action="viewOrder">
+            <button id="delete" type="submit"></button>
+
+        </form>
     </main>
+    <script>
+        function removeProd(id){
+            document.getElementById("formDelete").action = "viewOrder/" + id;
+            document.getElementById("delete").click();
+        }
+    </script>
     @section('footer')
 

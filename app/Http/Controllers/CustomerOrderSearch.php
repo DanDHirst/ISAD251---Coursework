@@ -17,8 +17,10 @@ class CustomerOrderSearch extends Controller
         //
         $orders = [];
         $orderDetails = [];
+        $results = \App\GetMenu::all();
+
         // send in these variables as null so the program doesnt crash when trying to find the variables
-        return view('viewOrder', compact('orders'), compact('orderDetails'));
+        return view('viewOrder', compact('results','orderDetails','orders'));
     }
 
     /**
@@ -29,6 +31,7 @@ class CustomerOrderSearch extends Controller
     public function create()
     {
         //
+        echo "show";
 
     }
 
@@ -41,14 +44,28 @@ class CustomerOrderSearch extends Controller
     public function store(Request $request)
     {
         //
+        if(
+            $request->has('ProductID')
+        ){
+            $orderID = $request->OrderID;
+            $prodID = $request->ProductID;
+            $qty = $request->Quantity;
+            $price = $request->Price;
+            //echo $orderID. $prodID. $qty. $price;
+
+            DB::select('CALL addOrderDetails(?,?,?,?)', array($orderID, $prodID, $qty, $price));
+
+
+
+        }
         $orders = DB::select('CALL getOrder(?,?)', array($request->orderID,$request->email));
         $orderID = $request->orderID;
         if ($orderID == null){
             $orderID = DB::select('CALL getOrderID(?)', array($request->email));
         }
         $orderDetails = DB::select('CALL getOrderDetails(?)', array($request->orderID));
-
-        return view('viewOrder', compact('orders'), compact('orderDetails'));
+        $results = \App\GetMenu::all();
+        return view('viewOrder', compact('results','orderDetails','orders'));
 
 
     }
@@ -62,6 +79,16 @@ class CustomerOrderSearch extends Controller
     public function show($id)
     {
         //
+        DB::select('CALL deleteOrderDetails(?)', array($id));
+        return redirect("viewOrder");
+        $orders = [];
+        $orderDetails = [];
+        $results = \App\GetMenu::all();
+
+        // send in these variables as null so the program doesnt crash when trying to find the variables
+        return view('viewOrder', compact('results','orderDetails','orders'));
+
+
     }
 
     /**
@@ -73,6 +100,7 @@ class CustomerOrderSearch extends Controller
     public function edit($id)
     {
         //
+        echo "edit";
     }
 
     /**
@@ -85,6 +113,7 @@ class CustomerOrderSearch extends Controller
     public function update(Request $request, $id)
     {
         //
+        echo"update";
     }
 
     /**
@@ -96,5 +125,7 @@ class CustomerOrderSearch extends Controller
     public function destroy($id)
     {
         //
+
+        return view('viewOrder', compact('results','orderDetails','orders'));
     }
 }
