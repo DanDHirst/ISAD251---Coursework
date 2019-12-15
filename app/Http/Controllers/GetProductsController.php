@@ -42,6 +42,7 @@ class GetProductsController extends Controller
         $price = $request->input("Price");
         $isSnack = $request->input("isSnack");
         DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
+        return "added the item ". $prodName . " with a Quantity of " . $quantity . " that costs £". $price;
     }
 
     /**
