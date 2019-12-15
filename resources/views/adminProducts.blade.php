@@ -11,7 +11,7 @@
                                 <th>Product ID</th>
                                 <th>ItemName</th>
                                 <th>Quantity</th>
-                                <th>Price</th>
+                                <th>Price(£)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,12 +35,29 @@
     </main>
     <form method="post" action="adminProducts" > <!-- save product -->
         @csrf
-        <input id="prodID" name="ProdID" value="">
-        <input id="prodName" name="ProdName" value="">
-        <input id="quantity" name="Quantity" value="">
-        <input id="price" name="Price" value="">
-        <input id="action" name="action" value="">
-        <button id="btnProduct" type="submit"></button>
+        <table>
+            <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Quantity</th>
+                <th>Price(£)</th>
+                <th>Is a food item</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <input id="prodID" name="ProdID" value="" hidden>
+                <td><input id="prodName" name="ProdName" value=""></td>
+                <td><input type="number" id="quantity" name="Quantity" value=""></td>
+                <td><input type="text" id="price" name="Price" value="" onkeypress="return isNumberKey(event)"></td>
+                <td><input class="checkbox" type="checkbox" name="isSnack" value=""></td>
+                <input id="action" name="action" value="add" hidden>
+
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" id="btnProduct" type="submit">Add item</button>
     </form>
     <script>
         function saveItem(product){
@@ -59,6 +76,15 @@
             document.getElementById("prodID").value = id;
             document.getElementById("action").value = "delete";
             document.getElementById("btnProduct").click();
+        }
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 46 && charCode > 31
+                && (charCode < 48 || charCode > 57))
+                return false;
+
+            return true;
         }
     </script>
     @section('footer')

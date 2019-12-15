@@ -50,6 +50,19 @@ class ProductManagement extends Controller
             $prodID = $request->ProdID;
             DB::select('CALL withdrawProduct(?)', array($prodID));
         }
+        if($request->action == "add"){
+            $prodName = $request->ProdName;
+            $quantity = $request->Quantity;
+            $price = $request->Price;
+            if($request->isSnack){
+                $isSnack = 1;
+            }
+            else{
+                $isSnack = 0;
+            }
+            DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
+        }
+
         return redirect('adminProducts');
     }
 
