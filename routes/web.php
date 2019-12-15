@@ -60,6 +60,8 @@ Route::get('/viewProducts', function (){
         return $product->ProdName;
     }
 });
+//Route::get("api","GetProductsController@index");
+//Route::post("api/insert","GetProductsController@store");
 
 
 
