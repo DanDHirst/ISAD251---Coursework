@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ProductManagement extends Controller
 {
@@ -14,6 +15,8 @@ class ProductManagement extends Controller
     public function index()
     {
         //
+        $products = \App\GetMenu::all();
+        return view('adminProducts', compact('products'));
     }
 
     /**
@@ -35,6 +38,32 @@ class ProductManagement extends Controller
     public function store(Request $request)
     {
         //
+
+        if($request->action == "save"){
+            $prodID = $request->ProdID;
+            $prodName = $request->ProdName;
+            $quantity = $request->Quantity;
+            $price = $request->Price;
+            DB::select('CALL UpdateProduct(?,?,?,?)', array($prodName, $quantity, $price, $prodID));
+        }
+        elseif ($request->action == "delete"){
+            $prodID = $request->ProdID;
+            DB::select('CALL withdrawProduct(?)', array($prodID));
+        }
+        if($request->action == "add"){
+            $prodName = $request->ProdName;
+            $quantity = $request->Quantity;
+            $price = $request->Price;
+            if($request->isSnack){
+                $isSnack = 1;
+            }
+            else{
+                $isSnack = 0;
+            }
+            DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
+        }
+
+        return redirect('adminProducts');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class AdminOrderManagment extends Controller
 {
@@ -14,6 +15,12 @@ class AdminOrderManagment extends Controller
     public function index()
     {
         //
+        $orders = [];
+        $orderDetails = [];
+
+
+        // send in these variables as null so the program doesnt crash when trying to find the variable
+        return view('adminCustomer', compact('orderDetails'), compact('orders'));
     }
 
     /**
@@ -35,6 +42,13 @@ class AdminOrderManagment extends Controller
     public function store(Request $request)
     {
         //
+        $orders = DB::select('CALL getOrder(?,?)', array($request->orderID,$request->email));
+        $orderID = $request->orderID;
+        if ($orderID == null){
+            $orderID = DB::select('CALL getOrderID(?)', array($request->email));
+        }
+        $orderDetails = DB::select('CALL getOrderDetails(?)', array($request->orderID));
+        return view('adminCustomer', compact('orderDetails','orders'));
     }
 
     /**
