@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\getProducts;
 use Illuminate\Http\Request;
+use DB;
 
 class GetProductsController extends Controller
 {
@@ -37,7 +38,7 @@ class GetProductsController extends Controller
     {
         //
         $prodName = $request->input("ProdName");
-        $quantity = $request->input("Quantity");
+        $quantity = $request->input("Qty");
         $price = $request->input("Price");
         $isSnack = $request->input("isSnack");
         DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
