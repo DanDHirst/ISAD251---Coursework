@@ -5,7 +5,10 @@
         <section class="clean-block clean-pricing dark">
             <div class="row">
                 <div class="col-md-4">
+
                     <ul>
+                        <img src= {{asset('assets/img/walkerReady.png')}} height="100" width="100">
+                        <br>
                         @foreach($results as $item)
                             <li style="list-style-type: none;">
 
