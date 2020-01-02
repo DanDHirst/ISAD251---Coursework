@@ -14,7 +14,7 @@ class CustomerOrderManagment extends Controller
      */
     public function index()
     {
-        //
+        //on load show all the menu items
         $results = \App\GetMenu::all();
         return view('order', compact('results'));
     }
@@ -37,19 +37,23 @@ class CustomerOrderManagment extends Controller
      */
     public function store(Request $request)
     {
+        // decodes json data from order web page
         $itemList = json_decode($request->itemList);
 //        foreach ($itemList->data as $item){
 //            echo $item->ProdID . $item->ProdName . $item->Quantity . $item->Price ;
 //        }
+        // calls the addOrder with a prepared statement
         DB::select('CALL addOrder (?, ?, ?)', array($request->comments,$request->tableNumber, $request->email));
         $orderID = DB::select('CALL getOrderID(?)', array($request->email));
 
         foreach ($orderID as $id){
              $orderID = $id->OrderID;
         }
+        // calls the add order details for all the items using a prepared statement
         foreach ($itemList->data as $item) {
             DB::select('CALL addOrderDetails(?,?,?,?)', array($orderID,$item->ProdID,$item->Quantity, $item->Price));
         }
+        // outputs the order details to a webpage
         echo "<h1> Order Sucessfully placed </h1><br>";
         echo "Your OrderID is ". $orderID;
         echo "<br> Your Items: ";

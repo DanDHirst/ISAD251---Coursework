@@ -41,7 +41,7 @@ class AdminOrderManagment extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //This statements shows the users orders depending on infomation sent using prepared statements
         $orders = DB::select('CALL getOrder(?,?)', array($request->orderID,$request->email));
         $orderID = $request->orderID;
         if ($orderID == null){

@@ -14,7 +14,7 @@ class ProductManagement extends Controller
      */
     public function index()
     {
-        //
+        //returns all the products from the database
         $products = \App\GetMenu::all();
         return view('adminProducts', compact('products'));
     }
@@ -38,16 +38,19 @@ class ProductManagement extends Controller
     public function store(Request $request)
     {
         //
-
+        // different types of actions depending on what the user wants
+        //
         if($request->action == "save"){
             $prodID = $request->ProdID;
             $prodName = $request->ProdName;
             $quantity = $request->Quantity;
             $price = $request->Price;
+            // this statement updates the products
             DB::select('CALL UpdateProduct(?,?,?,?)', array($prodName, $quantity, $price, $prodID));
         }
         elseif ($request->action == "delete"){
             $prodID = $request->ProdID;
+            // this remove a products from availibility
             DB::select('CALL withdrawProduct(?)', array($prodID));
         }
         if($request->action == "add"){
@@ -60,6 +63,7 @@ class ProductManagement extends Controller
             else{
                 $isSnack = 0;
             }
+            //this adds a product into the database
             DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
         }
 

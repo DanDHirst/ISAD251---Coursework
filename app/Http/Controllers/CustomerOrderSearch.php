@@ -14,9 +14,10 @@ class CustomerOrderSearch extends Controller
      */
     public function index()
     {
-        //
+        // passing in blank arrays so the view doesnt fail
         $orders = [];
         $orderDetails = [];
+        // gets all the menu items
         $results = \App\GetMenu::all();
 
         // send in these variables as null so the program doesnt crash when trying to find the variables
@@ -43,7 +44,7 @@ class CustomerOrderSearch extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // check to see if should add a new order Details
         if(
             $request->has('ProductID')
         ){
@@ -58,11 +59,14 @@ class CustomerOrderSearch extends Controller
 
 
         }
+        // returns a list of orders using the order id Gathered amd email gathered
         $orders = DB::select('CALL getOrder(?,?)', array($request->orderID,$request->email));
         $orderID = $request->orderID;
+        // if the order ID is null get the orderID using the email
         if ($orderID == null){
             $orderID = DB::select('CALL getOrderID(?)', array($request->email));
         }
+        // returns a list of order details using the order ID
         $orderDetails = DB::select('CALL getOrderDetails(?)', array($request->orderID));
         $results = \App\GetMenu::all();
         return view('viewOrder', compact('results','orderDetails','orders'));
