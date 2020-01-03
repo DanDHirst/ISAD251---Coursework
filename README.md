@@ -18,8 +18,9 @@ php artisan key:generate
 php artisan serve
 
 Video Showing the program:
+[![Pub Site youtube](https://img.youtube.com/vi/fsUunvlxkbU/0.jpg)](https://www.youtube.com/watch?v=fsUunvlxkbU)
+
 https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
-https://youtu.be/fsUunvlxkbU<VIDEO URL>
 
 Images used:
 -Bottles on homepage https://www.freeimages.com/photo/bottle-1528364
