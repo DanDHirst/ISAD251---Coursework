@@ -48,13 +48,15 @@ class CustomerOrderSearch extends Controller
         if(
             $request->has('ProductID')
         ){
-            $orderID = $request->OrderID;
-            $prodID = $request->ProductID;
-            $qty = $request->Quantity;
-            $price = $request->Price;
+            //sanitise the outputs for any html code
+            $filteredOrderID = filter_var($request->OrderID, FILTER_SANITIZE_STRING);
+            $filteredProdID = filter_var($request->ProductID, FILTER_SANITIZE_STRING);
+            $filteredQty = filter_var($request->Quantity, FILTER_SANITIZE_STRING);
+            $filteredPrice = filter_var($request->Price, FILTER_SANITIZE_STRING);
+
             //echo $orderID. $prodID. $qty. $price;
 
-            DB::select('CALL addOrderDetails(?,?,?,?)', array($orderID, $prodID, $qty, $price));
+            DB::select('CALL addOrderDetails(?,?,?,?)', array($filteredOrderID, $filteredProdID, $filteredQty, $filteredPrice));
 
 
 

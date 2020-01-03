@@ -37,13 +37,19 @@ class CustomerOrderManagment extends Controller
      */
     public function store(Request $request)
     {
+
         // decodes json data from order web page
         $itemList = json_decode($request->itemList);
 //        foreach ($itemList->data as $item){
 //            echo $item->ProdID . $item->ProdName . $item->Quantity . $item->Price ;
 //        }
         // calls the addOrder with a prepared statement
-        DB::select('CALL addOrder (?, ?, ?)', array($request->comments,$request->tableNumber, $request->email));
+        //sanitise the outputs for any html code
+        $filteredComments = filter_var($request->comments, FILTER_SANITIZE_STRING);
+        $filteredTableNumber = filter_var($request->tableNumber, FILTER_SANITIZE_STRING);
+        $filteredEmail = filter_var( $request->email, FILTER_SANITIZE_STRING);
+
+        DB::select('CALL addOrder (?, ?, ?)', array($filteredComments,$filteredTableNumber,$filteredEmail));
         $orderID = DB::select('CALL getOrderID(?)', array($request->email));
 
         foreach ($orderID as $id){

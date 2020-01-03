@@ -40,13 +40,14 @@ class ProductManagement extends Controller
         //
         // different types of actions depending on what the user wants
         //
+
         if($request->action == "save"){
-            $prodID = $request->ProdID;
-            $prodName = $request->ProdName;
-            $quantity = $request->Quantity;
-            $price = $request->Price;
+            $filteredProdID = filter_var($request->ProdID, FILTER_SANITIZE_STRING);
+            $filteredProdName = filter_var($request->ProdName, FILTER_SANITIZE_STRING);
+            $filteredQuantity = filter_var($request->Quantity, FILTER_SANITIZE_STRING);
+            $filteredPrice = filter_var($request->Price, FILTER_SANITIZE_STRING);
             // this statement updates the products
-            DB::select('CALL UpdateProduct(?,?,?,?)', array($prodName, $quantity, $price, $prodID));
+            DB::select('CALL UpdateProduct(?,?,?,?)', array($filteredProdName, $filteredQuantity, $filteredPrice, $filteredProdID));
         }
         elseif ($request->action == "delete"){
             $prodID = $request->ProdID;
@@ -54,9 +55,9 @@ class ProductManagement extends Controller
             DB::select('CALL withdrawProduct(?)', array($prodID));
         }
         if($request->action == "add"){
-            $prodName = $request->ProdName;
-            $quantity = $request->Quantity;
-            $price = $request->Price;
+            $filteredProdName = filter_var($request->ProdName, FILTER_SANITIZE_STRING);
+            $filteredQuantity = filter_var($request->Quantity, FILTER_SANITIZE_STRING);
+            $filteredPrice = filter_var($request->Price, FILTER_SANITIZE_STRING);
             if($request->isSnack){
                 $isSnack = 1;
             }
@@ -64,7 +65,7 @@ class ProductManagement extends Controller
                 $isSnack = 0;
             }
             //this adds a product into the database
-            DB::select('CALL addProduct(?,?,?,?,?)', array($prodName, $quantity, $price, 1, $isSnack));
+            DB::select('CALL addProduct(?,?,?,?,?)', array($filteredProdName, $filteredQuantity, $filteredPrice, 1, $isSnack));
         }
 
         return redirect('adminProducts');
