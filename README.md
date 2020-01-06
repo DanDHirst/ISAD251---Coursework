@@ -25,3 +25,22 @@ https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
 Images used:
 -Bottles on homepage https://www.freeimages.com/photo/bottle-1528364
 -walkers crisp https://walkers.co.uk/crisps-range/walkers-crisps/ready-salted
+
+## Screenshots
+
+![homePage](Screenshots/homePage.png "Home Page")
+![addOrder](Screenshots/addOrder.png "Add Order")
+![viewOrder](Screenshots/viewOrder.png "View Order")
+
+![admin](Screenshots/admin.png "Admin")
+![adminCustomer](Screenshots/adminCustomer.png "Admin Customer")
+![adminProducts](Screenshots/adminProducts.png "Admin Products")
+
+
+## Browsers Compatibility
+### Browsers that have been tested:
+- Firefox
+- Chrome
+- Edge
+### Browser that aren’t completable that have been tested:
+- Internet Explorer
