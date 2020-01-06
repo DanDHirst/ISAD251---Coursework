@@ -58,7 +58,7 @@ https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
     2.	To view your order either type in the Order ID or the Email
 #### Add item to order ( follow steps in view order first)
     3.	To add an item to your order you type in the OrderID, ProductID, Quantity and price in the boxes at the bottom
-    4.	Once all the details are correct click the add item to order button
+    4.	Once all the details are correct click the "add item to order" button
     5.	Repeat step 2 to view order
 #### Remove item in order ( follow steps in view order first)
     3.	To remove an item, click the red cross next to the item in the table to remove
@@ -72,19 +72,19 @@ https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
 #### Admin views product
     1.	On the home page click the “Admin Page” text at the footer under edit your order
     2.	On the admin page click the button “Drink and snack management”
-    3.	Listed are the products in their respected column
+    3.	Listed are the products in their respected rows
 #### Admin edits product (Follow steps 1-3 in admin view product first)
-    4.	To edit replace any text in a row such as change walkers crisps to walkers ready salted and the quantity to 94
+    4.	To edit a product replace any text in a row such as change "walkers crisps" to "walkers ready salted" and the quantity to 94
     5.	Once a row has been changed you must press that rows save button to save to the database
-    6.	Once has been saved the page should refresh and show your changes
+    6.	Once the product has been saved the page should refresh and show your changes
 #### Admin adds a product (Follow steps 1-3 in admin view product first)
     4.	To add a product scroll to the bottom of the page
     5.	Enter the product name, quantity and price then tick the box if it is a food item
-    6.	Once all items filled in click the add item button to save item to Database
+    6.	Once all the fields are filled in click the "add item" button to save the product to the database
     7.	This will refresh the page and show the new product at the bottom of the list
 #### Admin removes a product (Follow steps 1-3 in admin view product first)
     4.	To remove an item in a row, click the red X next to that row
-    5.	Once the product has been removed from the database the page will refresh with the item missing
+    5.	Once the product has been removed from the database the page will refresh with the product missing
 
 
 ## Browsers Compatibility
