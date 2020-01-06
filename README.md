@@ -28,17 +28,17 @@ Images used:
 
 ## Screenshots
 
-![homePage](Screenshot/homePage.png "Home Page")
+![homePage](Screenshot/homePage.PNG "Home Page")
 
-![addOrder](Screenshot/addOrder.png "Add Order")
+![addOrder](Screenshot/addOrder.PNG "Add Order")
 
-![viewOrder](Screenshot/viewOrder.png "View Order")
+![viewOrder](Screenshot/viewOrder.PNG "View Order")
 
-![admin](Screenshot/admin.png "Admin")
+![admin](Screenshot/admin.PNG "Admin")
 
-![adminCustomer](Screenshot/adminCustomer.png "Admin Customer")
+![adminCustomer](Screenshot/adminCustomer.PNG "Admin Customer")
 
-![adminProducts](Screenshot/adminProducts.png "Admin Products")
+![adminProducts](Screenshot/adminProducts.PNG "Admin Products")
 
 
 ## Browsers Compatibility
