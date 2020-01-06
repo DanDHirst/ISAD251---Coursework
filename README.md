@@ -47,7 +47,7 @@ https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
 ![adminProducts](Screenshot/adminProducts.PNG "Admin Products")
 
 ## Application fact sheet
-    ## Customer orders snack
+### Customer orders snack
     1.	On the home page click order here on the image or order now on the tool bar
     2.	On the order page click the items you want on the left-hand side using + and –
     3.	type in a valid Email (this is validated by regex) to the left-hand side
@@ -56,15 +56,15 @@ https://www.youtube.com/watch?v=fsUunvlxkbU<VIDEO ID>
     6.	Once filled in click the submit order button
     7.	If the email and/or table number is incorrect the program will prompt you 
     8.	if all the elements are correct the program will redirect you to a page that has all the order details including order ID, products and the total.
-    ## Customer views/adds/removes order
-    ### View order
+### Customer views/adds/removes order
+#### View order
     1.	On the home page click the “View Order” text at the top of the screen
     2.	To view your order either type in the Order ID or the Email
-    ### Add Item to order ( follow steps in view order first)
+#### Add Item to order ( follow steps in view order first)
     3.	To add an item to your order you type in the OrderID, ProductID, Quantity and price box at the bottom
     4.	Once all the details are correct click the add item to order button
     5.	Repeat step 2 to view order
-    ### Remove Item in order ( follow steps in view order first)
+#### Remove Item in order ( follow steps in view order first)
     3.	To remove an item, click the red cross next to the item in the table to remove
     4.	Repeat step 2 to view order
 
