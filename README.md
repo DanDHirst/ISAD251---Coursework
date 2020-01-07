@@ -18,6 +18,7 @@
 - Bootstrap Studio (to help create the first layout): https://bootstrapstudio.io/ 
 - Regex helper(to help with the regex for email): https://www.regextester.com/ 
 - Composer (used to install dependencies for Laravel): https://getcomposer.org/download/
+- Web accessibility test: https://achecker.ca/ 
 
 ## Video Showing the program:
 [![Pub Site youtube](https://img.youtube.com/vi/fsUunvlxkbU/0.jpg)](https://www.youtube.com/watch?v=fsUunvlxkbU)
