@@ -87,6 +87,21 @@ https://www.youtube.com/watch?v=cmFHNDcs7jY<VIDEO ID>
     4.	To remove an item in a row, click the red X next to that row
     5.	Once the product has been removed from the database the page will refresh with the product missing
 
+## Web accessibility testing
+ ### Home
+![homePage](Screenshot/accessibility%20testing/home.png "Home Page")
+ ### Menu
+![homePage](Screenshot/accessibility%20testing/menu.png "Menu")
+### Add order
+![addOrder](Screenshot/accessibility%20testing/order.png "Add Order")
+### View order
+![viewOrder](Screenshot/accessibility%20testing/view%20order.png "View Order")
+### Admin
+![admin](Screenshot/accessibility%20testing/adminPortal.png "Admin")
+### Admin customer
+![adminCustomer](Screenshot/accessibility%20testing/adminViewCustomer.png "Admin Customer")
+### Admin products
+![adminProducts](Screenshot/accessibility%20testing/productManagement.png "Admin Products")
 
 ## Browsers Compatibility
 ### Browsers that have been tested:
